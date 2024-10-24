@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landsat Metadata Explained</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        /* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #FF5733, #FFC300); /* Gradient background with red and yellow */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Increased padding for better spacing */
+    border-radius: 10px;
+    z-index: 1; /* Ensure header is above other content */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+/* Logo Styles */
+.logo-container {
+    display: inline-block; /* Make the container inline-block */
+    padding: 10px 20px; /* Padding for spacing */
+   
+  
+    box-shadow: 0px 3px 5px rgba(186, 176, 176, 0.1); /* Add a subtle shadow */
+}
+
+.logo {
+    display: inline-block; /* Ensures background color fits around text */
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #210e0e; /* Text color */
+    background: linear-gradient(to right, #FF5733, #FFC300);
+    padding: 10px 20px; /* Padding for spacing around the text */
+    box-shadow: 0px 3px 5px rgba(186, 176, 176, 0.1); /* Add a subtle shadow */
+    border-radius: 5px; /* Rounded corners */
+}
+
+
+/* Logo Background */
+.logo-background {
+    background-color: #FF5733; /* Background color */
+}
+
+
+
+
+/* Navigation Styles */
+nav {
+    float: right; /* Move navigation to the right */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px; /* Adjust spacing between navigation items */
+}
+
+nav ul li:first-child {
+    margin-left: 0; /* Remove margin for the first navigation item */
+}
+
+nav ul li a {
+    color: #181010; /* Text color */
+    text-decoration: none;
+     font-weight: bold;
+    font-size: 18px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Change hover background color to semi-transparent white */
+}
+
+/* Navigation Button Styles */
+.nav-button {
+    margin-left: 20px; /* Adjust margin to separate from navigation items */
+}
+
+.nav-button a {
+    color: #FF5733; /* Red text color */
+    background-color: #FFC300; /* Yellow background color */
+    border: 1px solid #FF5733; /* Red border color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-button a:hover {
+    background-color: #FF5733; /* Change hover background color to red */
+    color: #fff; /* Change text color on hover to white */
+    border-color: #FF5733; /* Change border color on hover to red */
+}
+        
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .explanation {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        /* Style for search form */
+        .search-form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-input {
+            padding: 10px;
+            width: 60%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .search-button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    
+        
+        <header>
+            <div class="logo"> META DATA EXTRACTION</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="./histograms.html">Histograms</a></li>
+                    <li><a href="conact.html">Contact</a></li>
+                    <li><a href="matter.html">Explore Metadata</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <br><br><br> 
+        <h1>Landsat Metadata Explained</h1>
+ 
+    <div class="container">
+        <!-- Search form -->
+        <form class="search-form" action="#" onsubmit="search(event)">
+            <input type="text" id="search-input" class="search-input" placeholder="Enter search term...">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+        <div class="explanation">
+            <h2>Collection Number</h2>
+            <p>The Collection Number represents the version or edition of the Landsat data collection. It helps users track and identify different versions of Landsat data products.</p>
+        </div>
+        <div class="explanation">
+            <h2>Nadir or OffNadir</h2>
+            <p>Nadir refers to the position of the satellite directly overhead the point on Earth's surface it is observing. OffNadir indicates that the satellite is positioned off to the side from directly overhead, resulting in images with different perspectives and potential distortions.</p>
+        </div>
+        <div class="explanation">
+            <h2>Station ID</h2>
+            <p>The Station ID refers to the ground station or receiving station that receives the satellite data. These stations are strategically located around the world to ensure continuous communication with satellites as they orbit the Earth.</p>
+        </div>
+        <div class="explanation">
+            <h2>Ground Control Points Model</h2>
+            <p>The Ground Control Points (GCPs) model refers to a set of known points on the Earth's surface with accurately measured geographic coordinates. These points are used to geometrically correct satellite imagery and ensure its accuracy and alignment with real-world locations.</p>
+        </div>
+        <div class="explanation">
+            <h2>Ground Control Points Version</h2>
+            <p>The Ground Control Points Version indicates the version or iteration of the Ground Control Points model used for geometric correction of satellite imagery. It helps ensure the accuracy of the correction process and the alignment of satellite data with real-world locations.</p>
+        </div>
+        <div class="explanation">
+            <h2>Geometric RSME Model</h2>
+            <p>The Geometric RSME Model represents the Root Mean Square Error (RMSE) associated with the geometric correction process of satellite imagery. It quantifies the average discrepancy between the corrected image coordinates and their corresponding ground control points on the Earth's surface. A lower RMSE value indicates a higher level of geometric accuracy in the corrected imagery.</p>
+        </div>
+        <div class="explanation">
+            <h2>Image Quality OLI</h2>
+            <p>The Image Quality OLI represents the quality assessment score for the Operational Land Imager (OLI) sensor data. It evaluates various factors such as sensor performance, calibration, and data processing to provide a measure of the overall quality of the OLI imagery. A higher score generally indicates better image quality.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Image Quality TIRS</h2>
+            <p>The Image Quality TIRS represents the quality assessment score for the Thermal Infrared Sensor (TIRS) data. Similar to Image Quality OLI, it evaluates the quality of TIRS sensor data, including factors such as sensor performance, calibration, and data processing. A higher score typically indicates better quality TIRS imagery.</p>
+        </div>
+        <div class="explanation">
+            <h2>Processing Software Version</h2>
+            <p>The Processing Software Version indicates the version of the software used to process and generate the satellite imagery data. It identifies the specific software tools and algorithms applied during the data processing stage, which can impact the accuracy and quality of the resulting imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Grid CellSize Panchromatic</h2>
+            <p>The Grid CellSize Panchromatic refers to the size of the grid cells used in the panchromatic band of the satellite imagery. It represents the spatial resolution of the panchromatic band, with smaller cell sizes indicating higher resolution and finer detail in the imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Geometric RMSE Model</h2>
+            <p>The Geometric RMSE Model represents the Root Mean Square Error (RMSE) associated with the geometric correction process of satellite imagery. It quantifies the average discrepancy between the corrected image coordinates and their corresponding ground control points on the Earth's surface. A lower RMSE value indicates a higher level of geometric accuracy in the corrected imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Geometric RMSE Model X</h2>
+            <p>The Geometric RMSE Model X represents the Root Mean Square Error (RMSE) in the horizontal (X) direction associated with the geometric correction process of satellite imagery. It measures the accuracy of the horizontal alignment of the corrected image coordinates with respect to the ground control points on the Earth's surface.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Geometric RMSE Model Y</h2>
+            <p>The Geometric RMSE Model Y represents the Root Mean Square Error (RMSE) in the vertical (Y) direction associated with the geometric correction process of satellite imagery. It measures the accuracy of the vertical alignment of the corrected image coordinates with respect to the ground control points on the Earth's surface.</p>
+        </div>
+        <div class="explanation">
+            <h2>Grid Cell Size Reflective</h2>
+            <p>The Grid Cell Size Reflective represents the size of the grid cells used in the reflective bands of the satellite imagery. It defines the spatial resolution of the reflective bands, with smaller cell sizes indicating higher resolution and finer detail in the imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Grid Cell Size Thermal</h2>
+            <p>The Grid Cell Size Thermal represents the size of the grid cells used in the thermal band of the satellite imagery. Similar to the reflective bands, it defines the spatial resolution of the thermal band, with smaller cell sizes indicating higher resolution and finer detail in the imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Reflective Lines</h2>
+            <p>The Reflective Lines refer to the number of lines (rows) in the reflective bands of the satellite imagery. It specifies the total number of scan lines captured in the reflective bands during image acquisition.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Reflective Samples</h2>
+            <p>The Reflective Samples refer to the number of samples (columns) in the reflective bands of the satellite imagery. It specifies the total number of pixel samples captured in each line of the reflective bands during image acquisition.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Thermal Lines</h2>
+            <p>The Thermal Lines refer to the number of lines (rows) in the thermal band of the satellite imagery. It specifies the total number of scan lines captured in the thermal band during image acquisition.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Thermal Samples</h2>
+            <p>The Thermal Samples refer to the number of samples (columns) in the thermal band of the satellite imagery. It specifies the total number of pixel samples captured in each line of the thermal band during image acquisition.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Ellipsoid</h2>
+            <p>The Ellipsoid represents the mathematical model used to approximate the shape of the Earth's surface. It defines the geometric properties of the Earth's ellipsoidal shape and is commonly used in geospatial calculations and map projections.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>FileName BFP OLI</h2>
+            <p>The FileName BFP OLI is the filename associated with the Browse File Product (BFP) of the Operational Land Imager (OLI) data. It typically contains information about the acquisition date and time, as well as other metadata related to the OLI imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>FileName BPF TIRS</h2>
+            <p>The FileName BPF TIRS is the filename associated with the Browse File Product (BPF) of the Thermal Infrared Sensor (TIRS) data. Similar to the OLI BFP filename, it contains information about the acquisition date and time, as well as other metadata related to the TIRS imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>FileName RLUT</h2>
+            <p>The FileName RLUT is the filename associated with the Radiometric Look-Up Table (RLUT) file. This file contains calibration information used to convert digital numbers (DN) in the satellite imagery to radiance values, allowing for accurate analysis of the observed radiation.</p>
+        </div>
+        <div class="explanation">
+            <h2>Spacecraft ID</h2>
+            <p>The Spacecraft ID indicates the name or identifier of the satellite used to capture the imagery. In this case, "LANDSAT_8" refers to the Landsat 8 satellite, which is part of the Landsat program operated by NASA and the USGS.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Sun Azimuth</h2>
+            <p>The Sun Azimuth represents the azimuth angle of the sun, which is the angle between the direction of the sun and the north direction, measured clockwise in degrees from the north.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Map Projection</h2>
+            <p>The Map Projection specifies the mathematical model used to represent the curved surface of the Earth on a flat map. In this case, "UTM" stands for Universal Transverse Mercator projection, which divides the Earth into zones and uses a transverse Mercator projection for each zone.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Acquisition Date</h2>
+            <p>The Acquisition Date indicates the date when the satellite imagery was acquired. In this example, the date is "2024-02-11", which represents February 11, 2024.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Projection Attribute</h2>
+            <p>The Projection Attribute provides additional parameters related to the map projection used for the imagery. It includes details such as the projection type, datum, zone, grid cell size, and orientation.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Cloud Cover</h2>
+            <p>The Cloud Cover represents the percentage of the image area covered by clouds or cloud shadows. It provides an indication of the atmospheric conditions during image acquisition, with lower values indicating clearer skies.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Sensor ID</h2>
+            <p>The Sensor ID indicates the specific sensor or instrument onboard the satellite used to capture the imagery. In this case, "OLI_TIRS" refers to the Operational Land Imager (OLI) and Thermal Infrared Sensor (TIRS) combination used in Landsat 8.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Roll Angle</h2>
+            <p>The Roll Angle represents the angle of rotation of the satellite around its longitudinal axis. It is measured in degrees and can affect the orientation of the captured imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Sun Elevation</h2>
+            <p>The Sun Elevation represents the angle between the direction of the sun and the horizontal plane at the observation point. It indicates the height of the sun above the horizon and affects the illumination of the Earth's surface in the imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Path</h2>
+            <p>The Path identifies the specific orbital path followed by the satellite during image acquisition. It, along with the Row, helps to specify the geographic location of the imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Row</h2>
+            <p>The Row identifies the specific orbital row followed by the satellite during image acquisition. It, along with the Path, helps to specify the geographic location of the imagery.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>UTM Zone</h2>
+            <p>The UTM Zone specifies the specific zone of the Universal Transverse Mercator projection used for the imagery. It divides the Earth into longitudinal zones, each covering 6 degrees of longitude.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Output Format</h2>
+            <p>The Output Format indicates the format in which the satellite imagery is delivered or exported. In this case, "GEOTIFF" refers to the GeoTIFF format, which is a common file format used for georeferenced raster images.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Collection Category</h2>
+            <p>The Collection Category specifies the category or level of data collection. In this case, "T1" typically refers to Level-1 Terrain Corrected data, which has undergone geometric correction to remove distortions caused by terrain variations.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Datum</h2>
+            <p>The Datum refers to the reference ellipsoid or mathematical model used to represent the shape of the Earth's surface for geospatial calculations and map projections. In this case, "WGS84" refers to the World Geodetic System 1984 datum, which is commonly used in global positioning systems (GPS) and satellite navigation systems.</p>
+        </div>
+        
+        <div class="explanation">
+            <h2>Orientation</h2>
+            <p>The Orientation specifies the orientation or alignment of the imagery. In this case, "NORTH_UP" indicates that the imagery is oriented with the north direction at the top of the image.</p>
+        </div>
+        
+        
+        
+        
+        <!-- Add more sections for other metadata fields as needed -->
+    </div>
+    <footer>
+        <p>&copy; 2024 Landsat Metadata Explained</p>
+    </footer>
+
+    <script>
+        function search(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the search input value
+            var searchInput = document.getElementById('search-input').value.toLowerCase();
+
+            // Get all explanations
+            var explanations = document.querySelectorAll('.explanation');
+
+            // Loop through explanations to find matches
+            explanations.forEach(function(explanation) {
+                var text = explanation.textContent.toLowerCase();
+                if (text.includes(searchInput)) {
+                    explanation.style.display = 'block'; // Show matching explanations
+                } else {
+                    explanation.style.display = 'none'; // Hide non-matching explanations
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+     /* Your CSS styles go here */
+     body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('https://www.hindustantimes.com/ht-img/img/2023/04/18/1600x900/6c1f570f-76de-46d7-81f3-5a92305a1cba_86df2740_1681817832191_1681817843334.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+   
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+    
+    
+
+#home {
+    display: none; /* Initially hide the home page content */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #FF5733, #FFC300); /* Gradient background with red and yellow */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Increased padding for better spacing */
+    border-radius: 10px;
+    z-index: 1; /* Ensure header is above other content */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+/* Logo Styles */
+.logo-container {
+    display: inline-block; /* Make the container inline-block */
+    padding: 10px 20px; /* Padding for spacing */
+   
+  
+    box-shadow: 0px 3px 5px rgba(186, 176, 176, 0.1); /* Add a subtle shadow */
+}
+
+.logo {
+    display: inline-block; /* Ensures background color fits around text */
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #210e0e; /* Text color */
+    background: linear-gradient(to right, #FF5733, #FFC300);
+    padding: 10px 20px; /* Padding for spacing around the text */
+    box-shadow: 0px 3px 5px rgba(186, 176, 176, 0.1); /* Add a subtle shadow */
+    border-radius: 5px; /* Rounded corners */
+}
+
+
+/* Logo Background */
+.logo-background {
+    background-color: #FF5733; /* Background color */
+}
+
+
+
+
+/* Navigation Styles */
+nav {
+    float: right; /* Move navigation to the right */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px; /* Adjust spacing between navigation items */
+}
+
+nav ul li:first-child {
+    margin-left: 0; /* Remove margin for the first navigation item */
+}
+
+nav ul li a {
+    color: #181010; /* Text color */
+    text-decoration: none;
+     font-weight: bold;
+    font-size: 18px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Change hover background color to semi-transparent white */
+}
+
+/* Navigation Button Styles */
+.nav-button {
+    margin-left: 20px; /* Adjust margin to separate from navigation items */
+}
+
+.nav-button a {
+    color: #FF5733; /* Red text color */
+    background-color: #FFC300; /* Yellow background color */
+    border: 1px solid #FF5733; /* Red border color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-button a:hover {
+    background-color: #FF5733; /* Change hover background color to red */
+    color: #fff; /* Change text color on hover to white */
+    border-color: #FF5733; /* Change border color on hover to red */
+}
+
+/* Navigation Button Styles */
+.nav-button {
+    margin-left: 20px; /* Adjust margin to separate from navigation items */
+}
+
+.nav-button a {
+    color: #FF5733; /* Red text color */
+    background-color: #FFC300; /* Yellow background color */
+    border: 1px solid #FF5733; /* Red border color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-button a:hover {
+    background-color: #FF5733; /* Change hover background color to red */
+    color: #fff; /* Change text color on hover to white */
+    border-color: #FF5733; /* Change border color on hover to red */
+}
+
+
+
+
+h1 {
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Changed height to min-height */
+            padding: 20px;
+            margin-bottom: 100px; /* Added margin for the footer */
+        }
+
+        .contact-left {
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-left-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-inputs {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-inputs:focus {
+            outline: none;
+            background-color: #e6e6e6;
+        }
+
+        .contact-left textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .contact-left button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-left button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-right {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-right img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .contact-left, .contact-right {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo" >META DATA EXTRACTION<div>
+    <nav>
+        <ul>
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="./histograms.html">Histograms</a></li>
+            <li><a href="conact.html">Contact</a></li>
+            <li><a href="matter.html">Explore Metadata</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="contact-container">
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+        <div class="contact-left-title">
+            <h2>Contact Us</h2>
+            <hr>
+        </div>
+        <input type="hidden" name="access_key" value="6528f558-d911-4316-a12c-69370293b485">
+        <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+        <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+        <textarea name="message" placeholder="Enter Your Message" class="contact-inputs" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <div class="contact-right">
+        <img src="https://c0.wallpaperflare.com/preview/821/982/513/email-marketing-newsletter-email-marketing.jpg" alt="Email Marketing">
+    </div>
+</div>
+
+<footer>
+    <p>@2024 Meta data extraction all rightd reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histograms</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #85a0ae;
+        background-image: url('background.jpg'); /* Replace 'background.jpg' with your actual image file */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    canvas {
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="file"] {
+        margin: 20px;
+        padding: 12px 20px;
+        border: 2px solid #007bff;
+        border-radius: 6px;
+        background-color: #fff;
+        color: #007bff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    input[type="file"]:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    input[type="file"]:focus {
+        outline: none;
+        border-color: #0056b3;
+    }</style>
+</head>
+<body>
+<input type="file" id="fileInput" accept=".xml" onchange="handleFile(this.files)">
+<div class="container">
+    <div class="histogram-container">
+        <h2>Radiance Rescaling (Mult and Add)</h2>
+        <canvas id="radiometricRescalingHistogram" width="400" height="300"></canvas>
+    </div>
+    <div class="histogram-container">
+        <h2>Reflectance Rescaling (Mult and Add)</h2>
+        <canvas id="reflectanceRescalingHistogram" width="400" height="300"></canvas>
+    </div>
+</div>
+
+<script>
+function handleFile(files) {
+    if (files.length === 0) return;
+
+    var file = files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(event) {
+        var xml_data = event.target.result;
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(xml_data, "text/xml");
+
+        var radiometricRescalingData = [];
+        var reflectanceRescalingData = [];
+
+        for (var i = 1; i <= 11; i++) {
+            var radianceMultElement = xmlDoc.querySelector("RADIANCE_MULT_BAND_" + i);
+            var radianceAddElement = xmlDoc.querySelector("RADIANCE_ADD_BAND_" + i);
+            if (radianceMultElement && radianceAddElement) {
+                var radianceMult = parseFloat(radianceMultElement.textContent);
+                var radianceAdd = parseFloat(radianceAddElement.textContent);
+                radiometricRescalingData.push({
+                    label: "Band " + i,
+                    mult: radianceMult,
+                    add: radianceAdd
+                });
+            }
+
+            var reflectanceMultElement = xmlDoc.querySelector("REFLECTANCE_MULT_BAND_" + i);
+            var reflectanceAddElement = xmlDoc.querySelector("REFLECTANCE_ADD_BAND_" + i);
+            if (reflectanceMultElement && reflectanceAddElement) {
+                var reflectanceMult = parseFloat(reflectanceMultElement.textContent);
+                var reflectanceAdd = parseFloat(reflectanceAddElement.textContent);
+                reflectanceRescalingData.push({
+                    label: "Band " + i,
+                    mult: reflectanceMult,
+                    add: reflectanceAdd
+                });
+            }
+        }
+
+        generateHistogram(radiometricRescalingData, "radiometricRescalingHistogram", "Radiance Rescaling (Mult and Add)");
+        generateHistogram(reflectanceRescalingData, "reflectanceRescalingHistogram", "Reflectance Rescaling (Mult and Add)");
+    };
+
+    reader.readAsText(file);
+}
+
+function generateHistogram(data, canvasId, title) {
+    var labels = data.map(function(item) {
+        return item.label;
+    });
+
+    var multValues = data.map(function(item) {
+        return item.mult;
+    });
+
+    var addValues = data.map(function(item) {
+        return item.add;
+    });
+
+    var ctx = document.getElementById(canvasId).getContext('2d');
+
+    try {
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Multiplier',
+                    data: multValues,
+                    backgroundColor: 'blue'
+                }, {
+                    label: 'Additive',
+                    data: addValues,
+                    backgroundColor: 'green'
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: title
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    } catch (error) {
+        console.error('Error creating chart:', error);
+    }
+}
+</script>
+</body>
+</html>
+
+
+reflectance AND RADIANCE MULT AND ADDITIVE VALUES

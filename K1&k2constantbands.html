@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histograms</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #85a0ae;
+        background-image: url('background.jpg'); /* Replace 'background.jpg' with your actual image file */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    canvas {
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+        background-image: url('background.jpg'); /* Replace 'background.jpg' with your actual image file */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    canvas {
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+
+    input[type="file"] {
+        margin: 20px;
+        padding: 12px 20px;
+        border: 2px solid #3498db; /* Beautiful blue border */
+        border-radius: 6px;
+        background-color: #fff;
+        color: #3498db; /* Beautiful blue text color */
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    input[type="file"]:hover {
+        background-color: #3498db; /* Beautiful blue hover background */
+        color: #fff; /* White text on hover */
+    }
+
+    input[type="file"]:focus {
+        outline: none;
+        border-color: #217dbb; /* Darker blue for focus state */
+    }
+</style>
+</head>
+<body>
+<input type="file" id="fileInput" accept=".xml" onchange="handleFile(this.files)">
+<div class="container">
+    <canvas id="histogram1" width="400" height="400"></canvas>
+    <canvas id="histogram2" width="400" height="400"></canvas>
+</div>
+
+<script>
+    function handleFile(files) {
+        if (files.length === 0) return;
+
+        var file = files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+            var xml_data = event.target.result;
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(xml_data, "text/xml");
+
+            var k1_band_10 = parseFloat(xmlDoc.querySelector("K1_CONSTANT_BAND_10").textContent);
+            var k2_band_10 = parseFloat(xmlDoc.querySelector("K2_CONSTANT_BAND_10").textContent);
+            var k1_band_11 = parseFloat(xmlDoc.querySelector("K1_CONSTANT_BAND_11").textContent);
+            var k2_band_11 = parseFloat(xmlDoc.querySelector("K2_CONSTANT_BAND_11").textContent);
+
+            var options = {
+                type: 'bar',
+                data: {
+                    labels: ['Band 10', 'Band 11'],
+                    datasets: [{
+                        label: 'K1 Constants',
+                        data: [k1_band_10, k1_band_11],
+                        backgroundColor: 'blue'
+                    }, {
+                        label: 'K2 Constants',
+                        data: [k2_band_10, k2_band_11],
+                        backgroundColor: 'green'
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
+                                return datasetLabel + ': ' + tooltipItem.yLabel + ' (Value: ' + data.labels[tooltipItem.index] + ')';
+                            }
+                        }
+                    }
+                }
+            };
+
+            var ctx1 = document.getElementById('histogram1').getContext('2d');
+            new Chart(ctx1, options);
+
+            var ctx2 = document.getElementById('histogram2').getContext('2d');
+            new Chart(ctx2, options);
+        };
+
+        reader.readAsText(file);
+    }
+</script>
+</body>
+</html>

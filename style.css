@@ -1,0 +1,284 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://www.hindustantimes.com/ht-img/img/2023/04/18/1600x900/6c1f570f-76de-46d7-81f3-5a92305a1cba_86df2740_1681817832191_1681817843334.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+   
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+    
+    
+
+#home {
+    display: none; /* Initially hide the home page content */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #FF5733, #FFC300); /* Gradient background with red and yellow */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Increased padding for better spacing */
+    border-radius: 10px;
+    z-index: 1; /* Ensure header is above other content */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+/* Logo Styles */
+.logo-container {
+    display: inline-block; /* Make the container inline-block */
+    padding: 10px 20px; /* Padding for spacing */
+   
+  
+    box-shadow: 0px 3px 5px rgba(186, 176, 176, 0.1); /* Add a subtle shadow */
+}
+
+.logo {
+    display: inline-block; /* Ensures background color fits around text */
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    color: #210e0e; /* Text color */
+    background: linear-gradient(to right, #FF5733, #FFC300);
+    padding: 10px 20px; /* Padding for spacing around the text */
+    box-shadow: 0px 3px 5px rgba(186, 176, 176, 0.1); /* Add a subtle shadow */
+    border-radius: 5px; /* Rounded corners */
+}
+
+
+/* Logo Background */
+.logo-background {
+    background-color: #FF5733; /* Background color */
+}
+
+
+
+
+/* Navigation Styles */
+nav {
+    float: right; /* Move navigation to the right */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px; /* Adjust spacing between navigation items */
+}
+
+nav ul li:first-child {
+    margin-left: 0; /* Remove margin for the first navigation item */
+}
+
+nav ul li a {
+    color: #181010; /* Text color */
+    text-decoration: none;
+     font-weight: bold;
+    font-size: 18px;
+    padding: 10px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Change hover background color to semi-transparent white */
+}
+
+/* Navigation Button Styles */
+.nav-button {
+    margin-left: 20px; /* Adjust margin to separate from navigation items */
+}
+
+.nav-button a {
+    color: #FF5733; /* Red text color */
+    background-color: #FFC300; /* Yellow background color */
+    border: 1px solid #FF5733; /* Red border color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-button a:hover {
+    background-color: #FF5733; /* Change hover background color to red */
+    color: #fff; /* Change text color on hover to white */
+    border-color: #FF5733; /* Change border color on hover to red */
+}
+
+
+
+
+h1 {
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+h1 {
+    background-color: lightblue;
+    border-radius: 20px;
+  }
+  
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+}
+
+#fileInput {
+    margin: 20px auto;
+    display: block;
+}
+#metadata {
+    width: 80%;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#metadata h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    
+}
+
+#metadata p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    
+}
+
+#metadata table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+ 
+}
+
+#metadata th, #metadata td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
+
+}
+
+#metadata th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#metadata td {
+    color: #666;
+}
+
+#metadata td:first-child {
+    width: 30%;
+}
+
+#metadata a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#metadata a:hover {
+    text-decoration: underline;
+}
+
+
+#downloadButton {
+    display: block;
+    margin: 20px auto;
+   
+}
+
+#downloadButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #f8f8f8;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+#downloadButton:hover {
+    background-color: #7b3d66; 
+    box-shadow: 0 8px 16px rgba(251, 0, 146, 0.2); 
+}
+#metadata {
+    background-color: #f2f2f2; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  
+    color: #333; 
+}
+main {
+    flex: 1;
+}
+
+.footer {
+    position: relative; /* Change position to relative */
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+    clear: both; 
+    z-index: 1; 
+}
+
+
+
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  #downloadButton {
+    animation: blink 1s infinite; 
+  }
+  
+  #downloadButton:hover {
+    animation-play-state: paused; 
+  }
+  
